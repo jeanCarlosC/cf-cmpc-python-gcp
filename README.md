@@ -62,8 +62,12 @@ o editar un registro de la tabla `validacion_proforma` ingresando la siguiente q
 ### Información de cómo realizar las pruebas de la función de manera LOCAL 📖
 La función está corriendo en el contenedor `cf-validacion-proforma` de forma que maneje y simule eventos generados por servicios de Google Cloud, en este caso cuando se escriba un archivo en el bucket de Cloud Storage.
 
-Para probar la función se hace una petición POST a la URL local `http://localhost:2626` con el siguiente body de ejemplo:
+Para probar la función se hace una petición `POST` a la URL local `http://localhost:2626` con el siguiente body de ejemplo:
 
+**Method**: `POST`
+**Url**: `http://localhost:2626`
+**Headers**: `Content-Type: application/json`
+**Body**:
 ```json
 {
     "data": {
