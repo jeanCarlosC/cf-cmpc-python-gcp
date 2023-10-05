@@ -120,7 +120,6 @@ El archivo cloudbuild.yaml contiene la configuración para realizar el despliegu
 - Secret Manager
 
 #### Preparar la nube:
-,
 - Crear repositorio en google cloud repositories con el nombre que definas (ejemplo `cf-validacion-proforma`), luego subir este proyecto al mismo. https://source.cloud.google.com/repo/create
 
 - Se debe contar con un bucket en google cloud storage con el nombre que se defina, ese nombre luego lo usaras para configurar el activador de cloud build. https://console.cloud.google.com/storage/browser
