@@ -20,4 +20,6 @@ services:
     ports:
       - "5432:5432"
     volumes:
+      - ./sql-scripts:/docker-entrypoint-initdb.d # init scripts
       - ./data:/var/lib/postgresql/data
+    command: ["postgres", "-c", "log_statement=all"]
