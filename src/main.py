@@ -47,7 +47,7 @@ def split_file_name(file_name):
 
 
 def format_date_time(date_time):
-    # validar que el string tenga solo numeros
+    # validar que el string tenga solo números y que tenga 14 caracteres
     if not date_time.isdigit() or len(date_time) != 14:
         raise Exception(
             "El formato de fecha y hora en el nombre del archivo no es correcto")
