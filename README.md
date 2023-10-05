@@ -71,8 +71,8 @@ Para probar la función se hace una petición POST a la URL local `http://localh
         "name": "Ack_1_1_04102023221024.pdf",
         "size": "211624"
     },
-    "eventId": "9301832367019414",
-    "timestamp": "2023-10-04T20:15:25.061Z",
+    "eventId": "2523523521",
+    "timestamp": "2023-10-04T22:11:01.061Z",
     "eventType": "google.storage.object.finalize",
     "resource": {
         "name": "gs://bucket-name/Ack_1_1_04102023221024.pdf",
