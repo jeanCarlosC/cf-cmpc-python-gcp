@@ -67,7 +67,7 @@ Para probar la función se hace una petición `POST` a la URL local `http://loca
 - **Url**: `http://localhost:2626`
 - **Method**: `POST`
 - **Headers**: `Content-Type: application/json`
-- **Body**:
+- **Body** (ejemplo):
 ```json
 {
     "data": {
@@ -97,6 +97,8 @@ donde el atributo `data` contiene la información del evento generado por Cloud 
 - `resource.name`: es la ruta del archivo en el bucket.
 - `resource.service`: es el servicio que generó el evento.
 - `resource.type`: es el tipo de recurso.
+
+de los cuales los que se ocupan para la función son `data.bucket`, `data.name`
 
 **NOTA**: El nombre del archivo debe tener el siguiente formato `Ack_order_id_user_id_ddmmyyyyhhmmss.pdf` donde `order_id` es el id de la orden de venta, `user_id` es el id del usuario que generó la orden de venta, y `ddmmyyyyhhmmss` es la fecha y hora en que se generó la orden de venta.
 
