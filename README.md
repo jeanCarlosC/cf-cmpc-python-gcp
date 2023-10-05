@@ -104,6 +104,13 @@ de los cuales los que se ocupan para la función son `data.bucket`, `data.name`
 
 
 ### Información de cómo realizar las pruebas de la función de manera REMOTA en GCP 📖
+El proceso de activación de la función es de la siguiente manera:
+
+- Se escribe un archivo en el bucket de cloud storage.
+- **Se genera un evento en el bucket de cloud storage**: Cloud Storage está diseñado para monitorear un depósito (bucket) en busca de eventos específicos. en este caso es cuando se escribe un archivo en el bucket.
+- **Se notifica al servicio de Cloud Functions**: Cuando se detecta un evento en el depósito de Cloud Storage, el sistema de Google Cloud envía una notificación al servicio de Cloud Functions, que a su vez sabe qué función debe activar (por como desplegamos la función).
+- **Ejecución de la función**: La Cloud Function que se configuró para ese desencadenador específico se ejecuta automáticamente y recibe información sobre el evento (nombre del archivo, nombre del bucket , ..).
+
 El archivo cloudbuild.yaml contiene la configuración para realizar el despliegue de la función en GCP, para ello se debe tener en cuenta lo siguiente:
 
 #### Servicios a los que se debe tener acceso en un proyecto de GCP:
@@ -113,6 +120,7 @@ El archivo cloudbuild.yaml contiene la configuración para realizar el despliegu
 - Secret Manager
 
 #### Preparar la nube:
+,
 - Crear repositorio en google cloud repositories con el nombre que definas (ejemplo `cf-validacion-proforma`), luego subir este proyecto al mismo. https://source.cloud.google.com/repo/create
 
 - Se debe contar con un bucket en google cloud storage con el nombre que se defina, ese nombre luego lo usaras para configurar el activador de cloud build. https://console.cloud.google.com/storage/browser
