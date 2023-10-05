@@ -48,15 +48,15 @@ Podemos acceder a la base de datos `proformas` ingresando al contenedor `databas
     docker exec -it database_postgres psql -U admin -d proformas
     ```
 
-luego podriamos consultar la tabla `validacion_proforma` ingresando la siguiente query:
+luego podriamos consultar la tabla `validacion_proforma` ingresando la siguiente query de ejemplo:
     
     ```sql
     SELECT * FROM validacion_proforma;
     ```
-o editar un registro de la tabla `validacion_proforma` ingresando la siguiente query:
+o editar un registro de la tabla `validacion_proforma` ingresando la siguiente query de ejemplo:
 
     ```sql
-    UPDATE validacion_proforma SET status = 2 WHERE order_id = '1';
+    UPDATE validacion_proforma SET status = 2 WHERE order_id = '1' AND url_archivo = 'https://storage.cloud.google.com/bucket-name/Ack_1_1_04102023221024.pdf';
     ```
 
 ### Información de cómo realizar las pruebas de la función de manera LOCAL 📖
@@ -68,14 +68,14 @@ Para probar la función se hace una petición POST a la URL local `http://localh
 {
     "data": {
         "bucket": "bucket-name",
-        "name": "Ack_3_15_04102023201515.pdf",
+        "name": "Ack_1_1_04102023221024.pdf",
         "size": "211624"
     },
     "eventId": "9301832367019414",
     "timestamp": "2023-10-04T20:15:25.061Z",
     "eventType": "google.storage.object.finalize",
     "resource": {
-        "name": "gs://bucket-name/Ack_1_10_04102023201515.pdf",
+        "name": "gs://bucket-name/Ack_1_1_04102023221024.pdf",
         "service": "storage.googleapis.com",
         "type": "storage#object"
     }
@@ -120,3 +120,5 @@ El archivo cloudbuild.yaml contiene la configuración para realizar el despliegu
 
 
 Luego que la función este desplegada y andando, sube un archivo PDF al bucket de cloud storage que creaste anteriormente, y verifica que se haya registrado la validación en la base de datos.
+
+tambien podrías revisar los logs de la función en GCP para verificar que todo este bien.
