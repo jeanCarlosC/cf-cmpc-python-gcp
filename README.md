@@ -64,8 +64,8 @@ La función está corriendo en el contenedor `cf-validacion-proforma` de forma q
 
 Para probar la función se hace una petición `POST` a la URL local `http://localhost:2626` con el siguiente body de ejemplo:
 
-- **Method**: `POST`
 - **Url**: `http://localhost:2626`
+- **Method**: `POST`
 - **Headers**: `Content-Type: application/json`
 - **Body**:
 ```json
